@@ -25,6 +25,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+
 re: fclean all
 
 extract:
@@ -38,5 +39,12 @@ convert:
 	@echo "Converting to Byte Array format"
 	@python3 Img2ByteArray.py
 	@echo "Done!"
+
+cleanall: clean fclean
+	@echo "Cleaning images"
+	@rm -rf ./images
+	@echo "Cleaning output"
+	@rm -rf ./output.h
+	@echo "Cleaning done!"
 
 PHONY: all clean fclean re convert
