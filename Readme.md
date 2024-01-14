@@ -54,7 +54,6 @@ This project is designed to stream data, specifically images or video frames, fr
     ./send -v
     ```
 
-
 ## How It Works
 
 The C++ program opens a serial port connection to the ESP32 device, sends data over the connection, and then closes the connection. The Python script converts images to byte arrays that can be sent over the serial port connection.
