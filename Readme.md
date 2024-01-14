@@ -9,6 +9,8 @@ This project is designed to stream data, specifically images or video frames, fr
 - FFmpeg
 - libserialport library
 - Pillow library for Python
+- Nokia-1100 Lcd
+- Esp32 with Client program Flashed
 
 ## Usage
 
