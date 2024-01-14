@@ -17,14 +17,24 @@ This project is designed to stream data, specifically images or video frames, fr
     Rename the video file in inputvideo.mp4
 
     ```bash
+    make extract
+    ```
+    or
+    ```bash
     ffmpeg -i inputvideo.mp4 -vf "select=not(mod(n\,3))" -vsync vfr "images/output_%03d.png"
     ```
 
 2. Convert the frames to byte arrays using the Python script:
 
     ```bash
+    make convert
+    ```
+    or
+
+    ```bash
     python3 Img2ByteArray.py
     ```
+    
 
 3. Compile the C++ program:
 
@@ -39,7 +49,7 @@ This project is designed to stream data, specifically images or video frames, fr
     ```
     OR for verbose
     ```bash
-    ./send - v
+    ./send -v
     ```
 
 
