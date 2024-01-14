@@ -61,7 +61,9 @@ The C++ program opens a serial port connection to the ESP32 device, sends data o
 
 This project assumes that you have an ESP32 device connected to your computer via USB. If your setup is different, you may need to modify the code.
 If using wsl2, make sure to connect the arduino with this command, run it on power shell in administrator mode:
-https://learn.microsoft.com/en-us/windows/wsl/connect-usb
+
+    https://learn.microsoft.com/en-us/windows/wsl/connect-usb
+
     ```
         usbipd attach --busid [Id_of_USBport] --wsl Ubuntu-22.04
     ```
