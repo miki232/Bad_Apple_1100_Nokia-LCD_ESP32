@@ -64,6 +64,5 @@ If using wsl2, make sure to connect the arduino with this command, run it on pow
 https://learn.microsoft.com/en-us/windows/wsl/connect-usb
 
 
-    ```
         usbipd attach --busid [Id_of_USBport] --wsl Ubuntu-22.04
-    ```
+    
