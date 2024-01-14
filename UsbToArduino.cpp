@@ -4,11 +4,14 @@
 #include <iostream>
 #include <fstream>
 #include "libserialport/libserialport.h"
+#include <chrono>
 
 #include "output.h"
 
 int main(int argc, char *argv[])
 {
+    // auto start = std::chrono::high_resolution_clock::now();
+
     struct sp_port *port;
     (void) argc; // unused
     //Put your port name here (Linux: /dev/ttyUSB0, /dev/ttyUSB1, etc. Windows: COM1, COM2, etc.)
@@ -35,7 +38,7 @@ int main(int argc, char *argv[])
 	int total_frames = sizeof(bytearr) / sizeof(bytearr[0]);
     int frame_byte_lenght = sizeof(bytearr[0]) / sizeof(unsigned char);
 	printf("size %d %d\n",  total_frames, frame_byte_lenght);
-    
+
     // Send data to serial port
 	for (int i = 0; i < total_frames; ++i)
     {
@@ -51,8 +54,20 @@ int main(int argc, char *argv[])
         {
 			std::cout << "Dati inviati con successo alla porta seriale " << i << std::endl;
 		}
-		usleep(5000);
-	}
+		usleep(90000); //adjust this value to change the frame rate
+        // auto current_time = std::chrono::high_resolution_clock::now();
+        // std::chrono::duration<double> elapsed = current_time - start;
+        // double frame_rate = (i+1)*3 / elapsed.count();  // i+1 because i starts from 0, and 3 because we take 3 frames per second
+        // std::cout << "Frame rate: " << frame_rate << " frames per second" << std::endl;
+    }
+
+    // auto stop = std::chrono::high_resolution_clock::now();
+
+    // std::chrono::duration<double> elapsed = stop - start;
+    // double frame_rate = total_frames / elapsed.count();
+    // std::cout << "Total elapsed time: " << elapsed.count() << " seconds" << std::endl;
+    // std::cout << "Average frame rate: " << frame_rate << " frames per second" << std::endl;
+
 
     // Close serial port
     sp_close(port);
